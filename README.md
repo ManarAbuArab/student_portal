@@ -52,6 +52,17 @@ student_portal/
 - **Important:** The database host inside Docker is `db`, not `localhost`.
 
 ---
+🚀 VPS Deployment
+
+This project was deployed to a Virtual Private Server (VPS) using Back4App Containers. Back4App provides a managed VPS-like environment where Docker is pre-installed, and container execution is handled automatically.
+
+The Dockerized Student Portal project, originally developed in Assignment #2, was deployed on Back4App using its container-based workflow. The deployment process did not require manual installation of Git or Docker through a traditional SSH terminal.
+
+The application runs inside Docker containers (Apache, PHP, and MySQL) and is publicly accessible through the deployment URL provided by Back4App.
+
+🌐 Production URL
+https://myproject1-zutwqb6j.b4a.run/
+-----
 
 ## 🚀 How to Build and Run the Project
 
