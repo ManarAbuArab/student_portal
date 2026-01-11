@@ -19,6 +19,31 @@
 	5.	Verified in Task Manager → CPU → Virtualization: Enabled.
 
 Result: Docker Desktop started successfully and containers could run.
+-----
+## 📝 Deployment Notes
+
+- Issue: Dockerfile not found on Back4App  
+  Solution: Renamed file to 'Dockerfile' and placed it in the root directory
+
+- Issue: Apache warning "Could not reliably determine the server's fully qualified domain name"  
+  Solution: This is a normal warning; project still runs successfully
+
+- Deployment Steps:
+  1. Cloned GitHub repo to Back4App
+  2. Built Docker image from Dockerfile
+  3. Ran container
+  4. Verified project works at Public URL
+---
+VPS Deployment Notes
+
+One of the primary challenges encountered during the deployment process was understanding the differences between local Docker-based development and deployment within Back4App’s managed VPS-like environment.
+
+Unlike a traditional VPS setup, Back4App abstracts direct access to Docker and Git installation and management. This required adapting the deployment approach and understanding how container execution is handled by the platform without manual terminal configuration.
+
+Another challenge involved correctly configuring the application entry point. This issue was resolved by ensuring that the main `index.php` file was placed in the default directory expected by the Apache container, enabling the Student Portal application to be served properly.
+
+Overall, this deployment process enhanced understanding of container-based deployment models, environment abstraction, and best practices for preparing applications for production environments.
+
 ---
 
 # Notes on Student Portal Project
@@ -44,3 +69,26 @@ Result: Docker Desktop started successfully and containers could run.
 - Organizing files and folders professionally makes the project ready for submission and easier to grade.  
 - Taking screenshots of every step (Docker build, container running, project UI) is essential to prove the project works.  
 - I realized that projects using Docker require patience and understanding of internal networking and service communication.
+-----
+# Lessons Learned from Deploying Student Portal
+
+1. **Importance of Dockerfile naming and location**
+   - Back4App deployment failed initially because the file name was `dockerfile` instead of `Dockerfile`.
+   - Solution: Renamed file and placed it in the root of the repo.
+
+2. **Using Back4App Containers as VPS**
+   - Learned how to deploy a PHP + MySQL project in a containerized environment without setting up a full VPS.
+   - Learned how to access logs and debug deployment issues.
+
+3. **Handling Apache warnings**
+   - Apache sometimes gives warnings like "Could not reliably determine the server's fully qualified domain name".
+   - Learned these warnings don’t prevent the project from running.
+
+4. **Version control importance**
+   - Using Git & GitHub made it easy to track changes and redeploy the project.
+
+5. **Project structure**
+   - Organizing files into `src/`, `assets/`, and `docs/` improves clarity for deployment and grading.
+
+6. **Testing and validation**
+   - Always test all modules (login, signup, todo, personal schedule) after deployment to ensure the app works as expected.
